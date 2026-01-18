@@ -1,14 +1,12 @@
 FROM tomcat:9.0-jdk11
 
-RUN apt-get update && apt-get install -y ant
-
-WORKDIR /app
-COPY . .
-
-RUN ant clean war
-
+# Remove default Tomcat applications
 RUN rm -rf /usr/local/tomcat/webapps/*
-RUN cp dist/WebApplication1.war /usr/local/tomcat/webapps/ROOT.war
 
+# Deploy your WAR as ROOT app
+COPY WebApplication1.war /usr/local/tomcat/webapps/ROOT.war
+
+# Tomcat listens on 8080
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]
