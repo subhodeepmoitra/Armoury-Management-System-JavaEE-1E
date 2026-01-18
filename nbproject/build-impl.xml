@@ -302,7 +302,6 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
                     <classpath>
                         <path path="@{classpath}"/>
                     </classpath>
-                    <compilerarg line="${endorsed.classpath.cmd.line.arg}"/>
                     <compilerarg line="${javac.compilerargs}"/>
                     <compilerarg value="-processorpath"/>
                     <compilerarg path="@{processorpath}:${empty.dir}"/>
